@@ -41,9 +41,10 @@ public class WheelPickerManager extends SimpleViewManager<LoopView> implements L
         if (wheelPicker!=null){
             List<String> emptyList = new ArrayList<>();
             try {
-                List<Integer> dataInt = new ArrayList<>();
+                List<String> dataInt = new ArrayList<>();
                 for (int i = 0; i <data.size() ; i++) {
-                    dataInt.add(data.getInt(i));
+                    Integer a = data.getInt(i);
+                    dataInt.add(a.toString());
                 }
                 wheelPicker.setArrayList((ArrayList) dataInt);
             } catch (Exception e){
