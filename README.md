@@ -80,6 +80,8 @@ module.exports = MyPicker;
 | hideIndicator | - | `boolean` | Hide indicator |
 | indicatorWidth | 1 | `number` | Indicator width |
 | backgroundColor | transparent | `string` | Wheel Picker background color  |
+| lineMul | 2.0f | `number` | multiple of the text height and whole line height  |
+
 
 # Time Picker
 
