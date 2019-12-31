@@ -63,7 +63,7 @@ module.exports = MyPicker;
 
 ## Props
 
-| Prop  | Default  | Type | Description |
+| Prop  | Default  | Type | Description | Platform |
 | :------------ |:---------------:| :---------------:| :-----|
 | onItemSelected | - | `func` | Returns selected position |
 | data | - | `Array<string>` | Data array  |
@@ -80,7 +80,7 @@ module.exports = MyPicker;
 | hideIndicator | - | `boolean` | Hide indicator |
 | indicatorWidth | 1 | `number` | Indicator width |
 | backgroundColor | transparent | `string` | Wheel Picker background color  |
-| lineMul | 2.0f | `number` | multiple of the text height and whole line height  |
+| lineMul | 2.0f | `number` | multiple of the text height and whole line height  | Android Only |
 
 
 # Time Picker
