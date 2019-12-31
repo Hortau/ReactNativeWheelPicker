@@ -64,22 +64,22 @@ module.exports = MyPicker;
 ## Props
 
 | Prop  | Default  | Type | Description | Platform |
-| :------------ |:---------------:| :---------------:| :-----|
-| onItemSelected | - | `func` | Returns selected position |
-| data | - | `Array<string>` | Data array  |
-| isCyclic | false | `bool` | Make Wheel Picker cyclic |
-| selectedItemTextColor | black | `string` | Wheel Picker's selected Item text color  |
-| selectedItemTextSize | 16 | `number` | Wheel Picker's selected Item text size  |
-| selectedItemTextFontFamily | - | `font-family` | Wheel Picker's selected Item font  |
-| itemTextColor | grey | `string` | Wheel Picker's Item Text Color  |
-| itemTextSize | 16 | `number` | Wheel Picker's Item text size  |
-| itemTextFontFamily | - | `font-family` | Wheel Picker's Item font  |
-| selectedItem | 0 | `number` | Current item position |
-| initPosition | 0 | `number` | Initial item position |
-| indicatorColor | black | `string` | Indicator color  |
-| hideIndicator | - | `boolean` | Hide indicator |
-| indicatorWidth | 1 | `number` | Indicator width |
-| backgroundColor | transparent | `string` | Wheel Picker background color  |
+| :------------ |:---------------:| :---------------:| :-----| :------|
+| onItemSelected | - | `func` | Returns selected position | all |
+| data | - | `Array<string>` | Data array  | all |
+| isCyclic | false | `bool` | Make Wheel Picker cyclic | all |
+| selectedItemTextColor | black | `string` | Wheel Picker's selected Item text color  | all |
+| selectedItemTextSize | 16 | `number` | Wheel Picker's selected Item text size  | all |
+| selectedItemTextFontFamily | - | `font-family` | Wheel Picker's selected Item font  | all |
+| itemTextColor | grey | `string` | Wheel Picker's Item Text Color  | all |
+| itemTextSize | 16 | `number` | Wheel Picker's Item text size  | all |
+| itemTextFontFamily | - | `font-family` | Wheel Picker's Item font  | all |
+| selectedItem | 0 | `number` | Current item position | all |
+| initPosition | 0 | `number` | Initial item position | all |
+| indicatorColor | black | `string` | Indicator color  | all |
+| hideIndicator | - | `boolean` | Hide indicator | all |
+| indicatorWidth | 1 | `number` | Indicator width | all |
+| backgroundColor | transparent | `string` | Wheel Picker background color  | all |
 | lineMul | 2.0f | `number` | multiple of the text height and whole line height  | Android Only |
 
 
