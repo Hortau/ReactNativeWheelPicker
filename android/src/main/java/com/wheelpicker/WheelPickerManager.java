@@ -38,11 +38,25 @@ public class WheelPickerManager extends SimpleViewManager<LoopView> implements L
 
     @ReactProp(name = "data")
     public void setData(LoopView wheelPicker, ReadableArray data) {
+
+        /* 
+         * fix crash ,empty list is not allowed here 
+         */
+        if (data.size () <= 0) {
+            return ;
+        }
+
         if (wheelPicker!=null){
             List<String> emptyList = new ArrayList<>();
             try {
                 List<String> dataInt = new ArrayList<>();
-                for (int i = 0; i <data.size() ; i++) {
+                for (int i = 0; i < data.size() ; i++) {
+
+                    /* 
+                     * fix crash 
+                     * int value can crash here 
+                     * convert to string 
+                     */
                     Integer a = data.getInt(i);
                     dataInt.add(a.toString());
                 }
