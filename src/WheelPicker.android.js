@@ -20,7 +20,8 @@ type Props = {
   itemTextSize?: number,
   selectedItem?: number,
   backgroundColor?: string,
-  onItemSelected?: number => void
+  onItemSelected?: number => void,
+  lineMul? : Number,
 }
 
 export default class WheelPicker extends React.Component<Props> {
