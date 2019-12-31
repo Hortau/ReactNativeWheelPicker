@@ -55,6 +55,8 @@ public class LoopView extends View {
     float y2;
     float dy;
 
+    float offsetY = 0 ;
+
     public LoopView(Context context) {
         super(context);
         initLoopView(context);
@@ -122,8 +124,9 @@ public class LoopView extends View {
         halfCircumference = (int) (maxTextHeight * lineSpacingMultiplier * (itemCount - 1));
         measuredHeight = (int) ((halfCircumference * 2) / Math.PI);
         radius = (int) (halfCircumference / Math.PI);
-        firstLineY = (int) ((measuredHeight - lineSpacingMultiplier * maxTextHeight) / 2.0F);
-        secondLineY = (int) ((measuredHeight + lineSpacingMultiplier * maxTextHeight) / 2.0F);
+
+        firstLineY = (int) ((measuredHeight - lineSpacingMultiplier * maxTextHeight) / 2.0F) ;
+        secondLineY = (int) ((measuredHeight + lineSpacingMultiplier * maxTextHeight) / 2.0F) ;
         if (initPosition == -1) {
             if (isLoop) {
                 initPosition = (arrayList.size() + 1) / 2;
@@ -190,6 +193,13 @@ public class LoopView extends View {
             super.onDraw(canvas);
             return;
         }
+
+        // fixed
+        // center the content 
+        int offsety = (this.getHeight() - measuredHeight) / 2;
+        firstLineY = (int) ((measuredHeight - lineSpacingMultiplier * maxTextHeight) / 2.0F) + offsety ;
+        secondLineY = (int) ((measuredHeight + lineSpacingMultiplier * maxTextHeight) / 2.0F)  + offsety;
+
         as = new String[itemCount];
         change = (int) (totalScrollY / (lineSpacingMultiplier * maxTextHeight));
         preCurrentIndex = initPosition + change % arrayList.size();
@@ -245,7 +255,7 @@ public class LoopView extends View {
             if (angle >= 90F || angle <= -90F) {
                 canvas.restore();
             } else {
-                int translateY = (int) (radius - Math.cos(radian) * radius - (Math.sin(radian) * maxTextHeight) / 2D);
+                int translateY = (int) (radius - Math.cos(radian) * radius - (Math.sin(radian) * maxTextHeight) / 2D) + offsety;
                 canvas.translate(0.0F, translateY);
                 canvas.scale(1.0F, (float) Math.sin(radian));
                 if (translateY <= firstLineY && maxTextHeight + translateY >= firstLineY) {
