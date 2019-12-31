@@ -410,6 +410,14 @@ public class LoopView extends View {
         paintC.setStrokeWidth(width);
     }
 
+    public final void setLineMul (int mul) {
+        if (mul < lineSpacingMultiplier || mul > 6) {
+            return ;
+        }
+
+        lineSpacingMultiplier = mul;
+    }
+
     public final void hideIndicator() {
         paintC.setColor(Color.TRANSPARENT);
     }

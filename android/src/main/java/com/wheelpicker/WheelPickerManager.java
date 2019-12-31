@@ -99,6 +99,13 @@ public class WheelPickerManager extends SimpleViewManager<LoopView> implements L
         }
     }
 
+    @ReactProp(name = "lineMul")
+    public void setLineMul(LoopView wheelPicker, int lineMul) {
+        if (wheelPicker!=null){
+            wheelPicker.setLineMul(lineMul);
+        }
+    }
+
     @ReactProp(name = "hideIndicator")
     public void setIndicator(LoopView wheelPicker, Boolean renderIndicator) {
         if (wheelPicker!=null){
