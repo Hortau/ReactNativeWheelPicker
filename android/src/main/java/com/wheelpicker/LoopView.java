@@ -404,6 +404,10 @@ public class LoopView extends View {
         paintC.setColor(Color.TRANSPARENT);
     }
 
+    public final boolean isIndicatorHidden () {
+        return paintC.getColor() == Color.TRANSPARENT;
+    }
+
     public final void setSelectedItem(int position) {
         totalScrollY = (int) ((float) (position - initPosition) * (lineSpacingMultiplier * maxTextHeight));
         invalidate();

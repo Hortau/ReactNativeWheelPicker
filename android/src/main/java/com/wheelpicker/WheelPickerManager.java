@@ -109,6 +109,9 @@ public class WheelPickerManager extends SimpleViewManager<LoopView> implements L
     @ReactProp(name = "indicatorColor")
     public void setIndicatorColor(LoopView wheelPicker, String indicatorColor) {
         if (wheelPicker!=null){
+            if (wheelPicker.isIndicatorHidden ()) {
+                return ;
+            }
             wheelPicker.setIndicatorColor(convertColor(indicatorColor));
         }
     }
