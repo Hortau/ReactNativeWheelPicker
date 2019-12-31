@@ -363,6 +363,15 @@ public class LoopView extends View {
     }
 
     public final void setInitPosition(int initPosition) {
+
+        /*
+         * fix crash 
+         * 
+         */
+        if (initPosition < 0) {
+            return ;
+        }
+
         this.initPosition = initPosition;
     }
 
