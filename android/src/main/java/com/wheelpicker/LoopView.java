@@ -55,6 +55,8 @@ public class LoopView extends View {
     float y2;
     float dy;
 
+    int selItemPos;
+
     float offsetY = 0 ;
 
     public LoopView(Context context) {
@@ -78,6 +80,7 @@ public class LoopView extends View {
         colorBlack = 0xff313131;
         colorGrayLight = 0xffc5c5c5;
         lineSpacingMultiplier = 2.0F;
+        selItemPos = 0;
         isLoop = false;
         initPosition = 0;
         itemCount = 7;
@@ -451,6 +454,9 @@ public class LoopView extends View {
         }
 
         lineSpacingMultiplier = mul;
+        totalScrollY = (int) ((float) (selItemPos - initPosition) * (lineSpacingMultiplier * maxTextHeight));
+        invalidate();
+        smoothScroll();
     }
 
     public final void hideIndicator() {
@@ -462,7 +468,8 @@ public class LoopView extends View {
     }
 
     public final void setSelectedItem(int position) {
-        totalScrollY = (int) ((float) (position - initPosition) * (lineSpacingMultiplier * maxTextHeight));
+        selItemPos = position;
+        totalScrollY = (int) ((float) (selItemPos - initPosition) * (lineSpacingMultiplier * maxTextHeight));
         invalidate();
         smoothScroll();
     }
