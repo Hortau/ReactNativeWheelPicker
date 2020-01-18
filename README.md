@@ -7,6 +7,7 @@
 
 A simple Wheel Picker for Android (For IOs is used PickerIOS)
 
+修复了很多bug，现在在我们的商业项目里运行的非常稳定，可以放心使用，性能不用担心，效率非常好，very fast 
 
 ## Installation
 `yarn add react-native-wheel-picker-android`
