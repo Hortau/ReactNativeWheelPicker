@@ -127,6 +127,11 @@ public class LoopView extends View {
 
         firstLineY = (int) ((measuredHeight - lineSpacingMultiplier * maxTextHeight) / 2.0F) ;
         secondLineY = (int) ((measuredHeight + lineSpacingMultiplier * maxTextHeight) / 2.0F) ;
+
+        if (arrayList.size() <= 1) {
+            isLoop = false;
+        }
+
         if (initPosition == -1) {
             if (isLoop) {
                 initPosition = (arrayList.size() + 1) / 2;
@@ -194,6 +199,10 @@ public class LoopView extends View {
             return;
         }
 
+        if (arrayList.size() <= 1) {
+            isLoop = false;
+        }
+
         // fixed
         // center the content 
         int offsety = (this.getHeight() - measuredHeight) / 2;
@@ -226,13 +235,34 @@ public class LoopView extends View {
         while (k1 < itemCount) {
             int l1 = preCurrentIndex - (itemCount / 2 - k1);
             if (isLoop) {
-                if (l1 < 0) {
-                    l1 = l1 + arrayList.size();
+
+                if (arrayList.size() < 4) {
+                    if (l1 < 0) {
+                        l1 = l1 + arrayList.size();
+                    }
+
+                    if (l1 < 0) {
+                        l1 = l1 + arrayList.size();
+                    }
+
+                    if (l1 > arrayList.size() - 1) {
+                        l1 = l1 - arrayList.size();
+                    }
+
+                    if (l1 > arrayList.size() - 1) {
+                        l1 = l1 - arrayList.size();
+                    }
+
+                    as[k1] = (String) arrayList.get(l1);
+                } else {
+                    if (l1 < 0) {
+                        l1 = l1 + arrayList.size();
+                    }
+                    if (l1 > arrayList.size() - 1) {
+                        l1 = l1 - arrayList.size();
+                    }
+                    as[k1] = (String) arrayList.get(l1);
                 }
-                if (l1 > arrayList.size() - 1) {
-                    l1 = l1 - arrayList.size();
-                }
-                as[k1] = (String) arrayList.get(l1);
             } else if (l1 < 0) {
                 as[k1] = "";
             } else if (l1 > arrayList.size() - 1) {
@@ -312,6 +342,11 @@ public class LoopView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent motionevent) {
+
+        if (arrayList.size() <= 1) {
+            isLoop = false;
+        }
+
         switch (motionevent.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 y1 = motionevent.getRawY();
@@ -363,15 +398,6 @@ public class LoopView extends View {
     }
 
     public final void setInitPosition(int initPosition) {
-
-        /*
-         * fix crash 
-         * 
-         */
-        if (initPosition < 0) {
-            return ;
-        }
-
         this.initPosition = initPosition;
     }
 
