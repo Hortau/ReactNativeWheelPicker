@@ -11,6 +11,11 @@ final class LoopRunnable implements Runnable {
 
     @Override
     public final void run() {
+
+        if (null == loopView || null == loopView.arrayList) {
+            return ;
+        }
+
         LoopListener listener = loopView.loopListener;
         int selectedItem = LoopView.getSelectedItem(loopView);
         loopView.arrayList.get(selectedItem);
