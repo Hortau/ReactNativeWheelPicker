@@ -36,6 +36,10 @@ public class LoopView extends View {
     int textSize;
     int maxTextWidth;
     int maxTextHeight;
+
+    int orgMaxTextHeight;
+    float lineMul = 1.0f;
+
     int colorGray;
     int colorBlack;
     int colorGrayLight;
@@ -157,7 +161,12 @@ public class LoopView extends View {
             paintB.getTextBounds("\u661F\u671F", 0, 2, rect); // 星期
             int textHeight = rect.height();
             if (textHeight > maxTextHeight) {
-                maxTextHeight = textHeight;
+                
+                // save org TextHeight 
+                orgMaxTextHeight = textHeight;
+
+                // set maxTextHeight 
+                maxTextHeight = (int) (orgMaxTextHeight * lineMul);
             }
         }
 
@@ -449,11 +458,12 @@ public class LoopView extends View {
     }
 
     public final void setLineMul (int mul) {
-        if (mul < lineSpacingMultiplier || mul > 6) {
+        if (mul < 1 || mul > 6) {
             return ;
         }
 
-        lineSpacingMultiplier = mul;
+        lineMul = mul;
+        maxTextHeight = (int) (orgMaxTextHeight * lineMul);
         totalScrollY = (int) ((float) (selItemPos - initPosition) * (lineSpacingMultiplier * maxTextHeight));
         invalidate();
         smoothScroll();
