@@ -22,7 +22,7 @@ type Props = {
   backgroundColor?: string,
   onItemSelected?: number => void,
   lineMul? : Number,
-  selectDeley? : Number,
+  selectDelay? : Number,
   scrollDelay? : Number,
 }
 
