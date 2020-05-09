@@ -169,7 +169,7 @@ public class LoopView extends View {
     private void smoothScroll() {
         int offset = (int) (totalScrollY % (lineSpacingMultiplier * maxTextHeight));
         cancelFuture();
-        mFuture = mExecutor.scheduleWithFixedDelay(new MTimer(this, offset), 0, 10, TimeUnit.MILLISECONDS);
+        mFuture = mExecutor.scheduleWithFixedDelay(new MTimer(this, offset), 0, scrollDelay, TimeUnit.MILLISECONDS);
     }
 
     public void cancelFuture() {
@@ -185,14 +185,14 @@ public class LoopView extends View {
 
     protected final void smoothScroll(float velocityY) {
         cancelFuture();
-        int velocityFling = 20;
+        int velocityFling = scrollDelay;
         mFuture = mExecutor.scheduleWithFixedDelay(new LoopTimerTask(this, velocityY), 0, velocityFling, TimeUnit.MILLISECONDS);
     }
 
 
     protected final void itemSelected() {
         if (loopListener != null) {
-            postDelayed(new LoopRunnable(this), 200L);
+            postDelayed(new LoopRunnable(this), scrollDelay);
         }
     }
 
