@@ -55,7 +55,9 @@ public class LoopView extends View {
     float y2;
     float dy;
 
-    int selItemPos;
+    int selectDelay = 5;
+    int scrollDelay = 5;
+    int selItemPos = 0;
 
     float offsetY = 0 ;
 
@@ -457,6 +459,14 @@ public class LoopView extends View {
         totalScrollY = (int) ((float) (selItemPos - initPosition) * (lineSpacingMultiplier * maxTextHeight));
         invalidate();
         smoothScroll();
+    }
+
+    public final void setSelectDelay (int delayInMSec) {
+        selectDelay = delayInMSec;
+    }
+
+    public final void setScrollDelay (int delayInMSec) {
+        scrollDelay = delayInMSec;
     }
 
     public final void hideIndicator() {

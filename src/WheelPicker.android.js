@@ -22,6 +22,8 @@ type Props = {
   backgroundColor?: string,
   onItemSelected?: number => void,
   lineMul? : Number,
+  selectDeley? : Number,
+  scrollDelay? : Number,
 }
 
 export default class WheelPicker extends React.Component<Props> {

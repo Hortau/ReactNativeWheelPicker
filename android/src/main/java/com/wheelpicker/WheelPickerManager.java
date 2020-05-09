@@ -181,6 +181,19 @@ public class WheelPickerManager extends SimpleViewManager<LoopView> implements L
         }
     }
 
+    @ReactProp(name = "selectDeley")    
+    public void setSelectDelay (LoopView wheelPicker, int delayInMSec) {
+        if (wheelPicker!=null){
+            wheelPicker.setSelectDelay(delayInMSec);
+        }
+    }
+
+    @ReactProp(name = "scrollDelay")
+    public void setScrollDelay (LoopView wheelPicker, int delayInMSec) {
+        if (wheelPicker!=null){
+            wheelPicker.setScrollDelay(delayInMSec);
+        }
+    }
 
     @Override
     public void onItemSelect(LoopView picker, int item) {
