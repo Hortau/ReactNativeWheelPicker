@@ -82,6 +82,8 @@ module.exports = MyPicker;
 | indicatorWidth | 1 | `number` | Indicator width | all |
 | backgroundColor | transparent | `string` | Wheel Picker background color  | all |
 | lineMul | 2.0f | `number` | multiple of the text height and whole line height  | Android Only |
+| selectDeley | 5 | `number` | the select scroll delay (in million seconds) | Android Only |
+| scrollDelay | 5 | `number` | the scroll delay (in million seconds) | Android Only |
 
 
 # Time Picker
