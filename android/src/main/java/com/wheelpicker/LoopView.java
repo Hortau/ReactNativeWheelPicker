@@ -192,7 +192,7 @@ public class LoopView extends View {
 
     protected final void itemSelected() {
         if (loopListener != null) {
-            postDelayed(new LoopRunnable(this), scrollDelay);
+            postDelayed(new LoopRunnable(this), selectDelay);
         }
     }
 
