@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
@@ -13,6 +13,11 @@ interface Props {
 const WheelPicker: React.FC<Props> = props => {
   const [selectedItem, setSelectedItem] = useState(props.initPosition || props.selectedItem || 0);
   const { data, onItemSelected, disabled } = props;
+  
+  useEffect(() => {
+    setSelectedItem(props.initPosition || props.selectedItem || 0);
+  }, [props.initPosition, props.selectedItem]);
+  
   if (!data || data.length === 0) return null;
   return (
     <View pointerEvents={disabled ? "none" : "auto"}>
