@@ -8,13 +8,13 @@
 import React, {useState} from 'react';
 import {
   Platform,
-  SafeAreaView,
   ScrollView,
   Text,
-  StatusBar,
   StyleSheet,
   View,
 } from 'react-native';
+import {SystemBars} from 'react-native-edge-to-edge';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {
   WheelPicker,
@@ -36,32 +36,30 @@ const App: () => JSX.Element = () => {
   const [, setTime] = useState(() => new Date());
   const [, setDate] = useState(() => new Date());
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <Text style={styles.weekdays}>{weekdays[selectedItem]}</Text>
-          <WheelPicker
-            onItemSelected={(index: any) => setSelectedItem(index)}
-            data={weekdays}
-          />
-          <TimePicker
-            initPosition={0}
-            style={styles.picker}
-            onTimeSelected={(selectedTime: any) => {
-              setTime(selectedTime);
-            }}
-          />
-          <View style={styles.divider} />
-          <DatePicker
-            initPosition={0}
-            style={styles.picker}
-            mode={'date'}
-            onDateSelected={(selectedDate: any) => setDate(selectedDate)}
-          />
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <SafeAreaView>
+      <SystemBars />
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <Text style={styles.weekdays}>{weekdays[selectedItem]}</Text>
+        <WheelPicker
+          onItemSelected={(index: any) => setSelectedItem(index)}
+          data={weekdays}
+        />
+        <TimePicker
+          initPosition={0}
+          style={styles.picker}
+          onTimeSelected={(selectedTime: any) => {
+            setTime(selectedTime);
+          }}
+        />
+        <View style={styles.divider} />
+        <DatePicker
+          initPosition={0}
+          style={styles.picker}
+          mode={'date'}
+          onDateSelected={(selectedDate: any) => setDate(selectedDate)}
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
